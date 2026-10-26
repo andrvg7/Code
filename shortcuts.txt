@@ -1,0 +1,8 @@
+BRAVE HISTORY DELETE
+Remove-Item -Path "$env:LOCALAPPDATA\BraveSoftware\Brave-Browser\User Data\Default\History" -Force -ErrorAction SilentlyContinue
+OPEN YOUTUBE
+Start-Process "$env:LOCALAPPDATA\BraveSoftware\Brave-Browser\Application\brave.exe" "https://www.youtube.com"
+OPEN STEAM
+Start-Process "${env:ProgramFiles(x86)}\Steam\steam.exe"
+OPEN NOTEPAD
+Start-Process "$env:ProgramFiles\Notepad++\notepad++.exe"
