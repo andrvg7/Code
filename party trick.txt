@@ -1,0 +1,19 @@
+PURPLE MATRIX
+Clear-Host
+Write-Host "=====================================" -ForegroundColor Magenta
+Write-Host "     CALLSIGN: PURPLE CODE RUNNING   " -ForegroundColor Magenta
+Write-Host "=====================================" -ForegroundColor Magenta
+Start-Sleep -Seconds 1
+
+# Pure high-speed visual flood
+while ($true) {
+    # Generate a pure string of random binary and hex spaces
+    $Line = -join (1..60 | ForEach-Object { (Get-Random -InputObject '0','1',' ','A','F','X',' ','#','@') })
+    
+    # Print the line immediately
+    [Console]::ForegroundColor = [ConsoleColor]::Magenta
+    [Console]::WriteLine($Line)
+    
+    # Tiny regulator so it doesn't freeze your CPU
+    Start-Sleep -Milliseconds 15
+}
