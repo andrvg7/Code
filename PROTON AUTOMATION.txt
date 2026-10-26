@@ -1,0 +1,13 @@
+# Query the Windows Start Menu shortcuts to find Proton VPN's true path
+$shortcut = Get-StartApps | Where-Object { $_.Name -like "*Proton*VPN*" }
+
+if ($shortcut) {
+    Write-Host "Found App Registration ID: $($shortcut.AppID)" -ForegroundColor Green
+    Write-Host "Opening Proton VPN..."
+    
+    # Launch using the universal Windows AppID shell protocol
+    Start-Process "shell:AppsFolder\$($shortcut.AppID)"
+} else {
+    Write-Host "Proton VPN is not indexed in the Windows Start Menu." -ForegroundColor Red
+    Write-Host "Please verify that the application is installed on this user profile." -ForegroundColor Yellow
+}
